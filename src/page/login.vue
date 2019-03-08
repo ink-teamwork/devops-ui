@@ -1,22 +1,20 @@
 <template>
-    <div>
+    <div class="login">
         <el-row class="row-bg">
-            <el-col :md = "6">
-                <el-input v-model="input" placeholder="请输入内容"><v-icon name="beer"/></el-input>
-            </el-col>
+            <h1>DevOps</h1>
         </el-row>
         <el-row class="row-bg">
-            <el-col :md = "6">
-                <el-input placeholder="请输入密码" v-model="input11" prefix-icon="el-icon-lock" show-password></el-input>
-            </el-col>
+            <el-input v-model="input" placeholder="请输入内容">
+                <i slot="prefix" class="el-input__icon ali-icon-user"></i>
+            </el-input>
         </el-row>
         <el-row class="row-bg">
-            <el-col :md = "3">
-                <el-button type="primary" v-on:click="login">主要按钮</el-button>
-            </el-col>
-            <el-col :md = "3">
-                <el-button type="primary">主要按钮</el-button>
-            </el-col>
+            <el-input placeholder="请输入密码" v-model="input11" show-password>
+                <i slot="prefix" class="el-input__icon ali-icon-lock"></i>
+            </el-input>
+        </el-row>
+        <el-row class="row-bg">
+            <el-button type="primary" v-on:click="login" class="loginBtn">登录</el-button>
         </el-row>
     </div>
 </template>
@@ -38,9 +36,22 @@
     }
 </script>
 
-<style scoped>
+<style>
+    body {
+        background-color: #f9fafc;
+    }
+
+    .login {
+        width: 400px;
+        margin: 0 auto;
+    }
+
     .row-bg {
         padding: 10px 0;
         background-color: #f9fafc;
+    }
+
+    .loginBtn {
+        width: 100%;
     }
 </style>

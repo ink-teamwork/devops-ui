@@ -9,7 +9,7 @@ export default {
   name: 'App',
 }
 </script>
-
+<style src="./assets/iconfont.css"></style>
 <style>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;

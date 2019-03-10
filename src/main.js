@@ -13,7 +13,8 @@ Vue.use(ElementUI);
 Vue.component('v-icon', Icon)
 
 Vue.config.productionTip = false;
-
+const  auth = {}
+sessionStorage.setItem("auth", JSON.stringify(auth));
 new Vue({
   router,
   render: h => h(App),

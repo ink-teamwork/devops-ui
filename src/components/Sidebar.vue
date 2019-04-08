@@ -1,13 +1,13 @@
 <template>
     <el-menu
-            default-active="2"
+            default-active="/index"
             class="el-menu-vertical-demo"
             @open="handleOpen"
             @close="handleClose"
             background-color="#545c64"
             text-color="#fff"
             active-text-color="#ffd04b">
-        <el-submenu index="1">
+        <el-submenu index="/index">
             <template slot="title">
                 <i class="el-icon-location"></i>
                 <span>导航一</span>

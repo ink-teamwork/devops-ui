@@ -1,15 +1,26 @@
 <template>
     <div>
         <router-view/>
-        <NavBar/>
+        <TabBar active="123" v-model="count"/>
     </div>
 </template>
 
 <script>
-    import NavBar from "../components/NavBar";
+    import TabBar from "../components/TabBar";
     export default {
         name: "MobileLayout",
-        components: {NavBar}
+        components: {TabBar},
+        data(){
+            return{
+                count: 7
+            }
+        },
+        created() {
+            var t = this;
+            setInterval(function () {
+                t.count += 1;
+            }, 1000)
+        }
     }
 </script>
 

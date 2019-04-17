@@ -8,5 +8,12 @@ module.exports = {
         before(app) {
             mock.init(app);
         }
-    }
+    },
+    rules: [
+        {
+            test: /\.less$/,
+            loader: "style-loader!css-loader!less-loader",
+        }
+    ],
+
 }

@@ -2,15 +2,7 @@ export default {
     props: {
         value: Number,
     },
-    data(){
-        return {
-
-        }
-    },
-    created(){
-        console.log(this.value)
-    },
-    render(h){
+    render(){
         return(
             <div>{this.value}</div>
         );

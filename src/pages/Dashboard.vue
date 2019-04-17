@@ -4,6 +4,9 @@
         <ul>
             <li v-for="item in items" v-bind:key="item.name"><span>{{item.name}}</span><span>{{item.age}}</span></li>
         </ul>
+        <Button>
+            <p>second</p>
+        </Button>
     </div>
 </template>
 

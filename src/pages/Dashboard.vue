@@ -4,8 +4,8 @@
         <ul>
             <li v-for="item in items" v-bind:key="item.name"><span>{{item.name}}</span><span>{{item.age}}</span></li>
         </ul>
-        <Button>
-            <p>second</p>
+        <Button type="primary" v-on:click="warn">
+            asd
         </Button>
     </div>
 </template>
@@ -16,6 +16,11 @@
         data () {
             return {
                 items: this.$store.state.order.items
+            }
+        },
+        methods: {
+            warn: function(){
+                alert(1);
             }
         }
     }

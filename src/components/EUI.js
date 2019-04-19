@@ -1,5 +1,5 @@
 export default {
     install: Vue => {
-        Vue.component('Button', () => import('./Button'))
+        Vue.component('Button', () => import('./button'))
     }
 }

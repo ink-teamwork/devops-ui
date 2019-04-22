@@ -4,6 +4,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import EUI from './components/EUI'
+import './components/eui.css'
 
 Vue.use(EUI);
 Vue.use(VueRouter);

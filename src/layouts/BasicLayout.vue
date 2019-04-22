@@ -1,22 +1,24 @@
 <template>
-    <router-view/>
+    <Container class="layout">
+        <Sidebar></Sidebar>
+        <Container>
+            <Header>123</Header>
+            <router-view/>
+        </Container>
+    </Container>
+
 </template>
 
 <script>
-    import Sidebar from "../components/Sidebar";
-    import Footer from "../components/Footer";
-    import Header from "../components/Header";
-
     export default {
         name: "BasicLayout",
-        components: {
-            Header,
-            Sidebar,
-            Footer,
-        },
     }
 </script>
 
 <style scoped>
-
+    .layout{
+        width: 100%;
+        display: block;
+        background-color: #f0f2f5;
+    }
 </style>

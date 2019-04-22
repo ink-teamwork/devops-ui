@@ -12,7 +12,7 @@ export default {
 <style src="./assets/iconfont.css"></style>
 <style>
   body{
-    font-size: 63.5%;
+    font-size: 62.5%;
     margin: 0;
     padding: 0;
   }
@@ -22,6 +22,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>

@@ -1,5 +1,7 @@
 *{
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 a {
     color: #1890ff;
@@ -11,4 +13,17 @@ a {
 }
 ul,li{
     list-style: none;
+}
+
+.menu{
+    font-size: 14px;
+    width: 100%;
+    padding: 8px 0;
+    text-align: left;
+    overflow: hidden;
+    height: auto;
+}
+
+.item .menu {
+    padding: 0 0 0 24px;
 }

@@ -4,13 +4,10 @@
 
 <script>
     export default {
-        name: "Menu",
+        name: "SubMenu",
         mounted() {
-            console.log(this);
-        },
-        addItem(item){
-
-        },
+            
+        }
     }
 </script>
 

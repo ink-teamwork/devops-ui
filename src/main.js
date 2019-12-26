@@ -3,10 +3,10 @@ import VueRouter from 'vue-router'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import EUI from './components/EUI'
-import './components/eui.css'
+import ViewUI from 'view-design';
+import 'view-design/dist/styles/iview.css';
 
-Vue.use(EUI);
+Vue.use(ViewUI);
 Vue.use(VueRouter);
 Vue.config.productionTip = false;
 const  auth = {};

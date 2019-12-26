@@ -15,6 +15,10 @@ const routes = [
               path: '/',
               component: () => import('../pages/Dashboard'),
             },
+            {
+                path: '/archives',
+                component: () => import('../pages/Archives'),
+            },
         ]
     },
     {

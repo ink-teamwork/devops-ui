@@ -1,0 +1,72 @@
+.archives .tree-menu {
+    width: 300px;
+    box-shadow: 0 0 4px 1px #2482D9 inset;
+    border: 2px solid #2482D9;
+    padding: 18px;
+    color: #327BC6;
+    float: left;
+    height: 990px;
+}
+
+.archives .tree-menu .ivu-tree ul li {
+    text-align: left;
+}
+
+.info {
+    width: 100%;
+}
+
+.info .title {
+    width: 100%;
+    color: #01EAff;
+    border: 1px solid #2380D7;
+    border-bottom: none;
+    line-height: 36px;
+    font-size: 18px;
+    background-color: #003F8C;
+    display: block;
+    text-align: center;
+}
+
+.info table {
+    width: 100%;
+    border-right: 1px solid #2380D7;
+    font-size: 12px;
+}
+
+.info table tbody tr td:nth-child(odd) {
+    background-color: #093266;
+    color: #3C8CF1;
+    text-align: right;
+    padding-right: 4px;
+    width: 20%;
+}
+
+.info table tbody tr td:nth-child(even) {
+    background-color: #003271;
+    color: #FFFFFF;
+    text-align: left;
+    padding-left: 4px;
+    width: 30%;
+}
+
+.info table tbody tr td {
+    border: 1px solid #2380D7;
+    border-right: none;
+    border-bottom: none;
+    line-height: 33px;
+}
+
+td.header {
+    background: none;
+    background-color: #093266 !important;
+    color: #3C8CF1 !important;
+    text-align: center !important;
+    width: 26.66% !important;
+    height: auto;
+}
+
+td.content {
+    text-align: center !important;
+    width: 26.66% !important;
+}

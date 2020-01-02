@@ -1,0 +1,201 @@
+.layout{
+    background: #0D2136;
+    position: relative;
+    overflow: hidden;
+}
+.main {
+    background-color: #0D2136;
+    width: calc(100% - 250px);
+    margin-left: 250px;
+}
+@font-face {
+    font-family: LCD;
+    src: url("../../assets/font/lcd.ttf");
+}
+
+.header {
+    background: url("../../assets/img/bg_top.png");
+    padding: 0 32px;
+    height: 64px;
+    line-height: 64px;
+}
+
+.header .menu {
+    background: none;
+    border: none;
+}
+
+.header .logo {
+    float: left;
+    width: 352px;
+    height: 32px;
+    border-radius: 3px;
+    position: relative;
+    top: 16px;
+    background: url("../../assets/img/bt.png");
+    background-size: 352px 32px;
+}
+
+.header .nav {
+    float: right;
+    position: relative;
+    right: 0px;
+    line-height: 64px;
+    display: flex;
+    color: #FFFFFF;
+}
+
+.header .nav .time {
+    font-family: LCD, sans-serif;
+    float: left;
+    font-size: 20px;
+    color: #00A8FF;
+}
+
+.header .nav .arrow {
+    color: #8BC7FF;
+}
+
+.header .nav .icon {
+    height: 16px;
+    width: 14px;
+}
+
+.header .nav .icon.bell {
+    background: url("../../assets/img/ts.png") no-repeat center;
+    background-size: cover;
+}
+
+.header .nav .icon.user {
+    background: url("../../assets/img/yh.png") no-repeat center;
+    background-size: cover;
+}
+
+.header .nav .logout {
+    color: #D81E06;
+}
+
+.header .nav .icon.logout {
+    background: url("../../assets/img/tc.png") no-repeat center;
+    background-size: cover;
+}
+.sidebar .info {
+    width: 250px;
+    height: 344px;
+    padding-top: 70px;
+    text-align: center;
+}
+
+.sidebar .info .name {
+    color: #FFFFFF;
+    font-size: 22px;
+    line-height: 64px;
+}
+
+.sidebar .info .role {
+    width: 160px;
+    height: 37px;
+    color: #6390B4;
+    font-size: 16px;
+    line-height: 37px;
+    background-color: #163961;
+    border: 2px solid #2864A9;
+    border-radius: 20px;
+    margin: 0 auto;
+}
+
+.sidebar {
+    background: url("../../assets/img/bg_cl.png") no-repeat center;
+    background-size: cover;
+    width: 250px;
+    position: absolute;
+    border-bottom: 0;
+    box-sizing: border-box;
+    box-shadow: 2px 0 8px 0 rgba(29, 35, 41, .05);
+    color: rgba(0, 0, 0, 0.65);
+    top: 64px;
+    bottom: 0;
+    width: 250px !important;
+    max-width: 250px !important;
+}
+
+.sidebar .menu {
+    width: 250px !important;
+    max-width: 250px !important;
+    border: none;
+    background: transparent;
+}
+
+.sidebar .menu li {
+    background: #082C4A;
+    /*margin-bottom: 2px;*/
+    border-bottom: 1px solid #2864A9;
+}
+
+.sidebar .menu li:hover {
+    background-color: #173C88;
+}
+
+.sidebar.ivu-layout-sider {
+    background: transparent;
+}
+
+.sidebar ul.ivu-menu, .sidebar li.ivu-menu-item {
+    color: #FFFFFF;
+}
+
+.sidebar .ivu-menu-light.ivu-menu-vertical .ivu-menu-item-active:not(.ivu-menu-submenu) {
+    color: #00A8FF;
+    background: #173C88;
+    z-index: 2;
+}
+
+.sidebar .logo h1 {
+    margin: 0 0 0 12px;
+    font-size: 20px;
+    line-height: 64px;
+}
+
+.sidebar .ivu-menu-vertical.ivu-menu-light:after {
+    width: 0;
+}
+
+.sidebar .ivu-menu-vertical .ivu-menu-item, .sidebar .ivu-menu-vertical .ivu-menu-submenu-title {
+    text-align: left;
+}
+
+.sidebar .ivu-menu-vertical .ivu-menu-submenu-title:hover {
+    color: #00A8FF;
+}
+
+.sidebar .icon {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: 4px;
+}
+
+.sidebar .icon.sy {
+    background: url("../../assets/img/sy.png") no-repeat center;
+}
+.sidebar .icon.dwxx {
+    background: url("../../assets/img/dwxx.png") no-repeat center;
+}
+.sidebar .icon.dwda {
+    background: url("../../assets/img/dwda.png") no-repeat center;
+}
+.sidebar .icon.xcba {
+    background: url("../../assets/img/xcba.png") no-repeat center;
+}
+.sidebar .icon.wbxx {
+    background: url("../../assets/img/wbxx.png") no-repeat center;
+}
+.sidebar .icon.xksxx {
+    background: url("../../assets/img/xksxx.png") no-repeat center;
+}
+.sidebar .icon.wll {
+    background: url("../../assets/img/wll.png") no-repeat center;
+}
+.sidebar .icon.xtgl {
+    background: url("../../assets/img/xtgl.png") no-repeat center;
+}

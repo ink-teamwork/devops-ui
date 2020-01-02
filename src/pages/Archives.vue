@@ -195,26 +195,38 @@
                         children: [
                             {
                                 title: '每日防火巡查',
+                                status: 0,
+                                count: 1521,
                                 expand: true,
                             },
                             {
                                 title: '防火检查',
+                                status: 0,
+                                count: 1521,
                                 expand: true,
                             },
                             {
                                 title: '消防室值班信息',
+                                status: 0,
+                                count: 1521,
                                 expand: true,
                             },
                             {
                                 title: '人员备案',
+                                status: 0,
+                                count: 1521,
                                 expand: true,
                             },
                             {
                                 title: '自我评估备案',
+                                status: 0,
+                                count: 1521,
                                 expand: true,
                             },
                             {
                                 title: '消防培训',
+                                status: 0,
+                                count: 1521,
                                 expand: true,
                             }
                         ]
@@ -225,14 +237,20 @@
                         children: [
                             {
                                 title: '维保机构',
+                                status: 1,
+                                count: 1521,
                                 expand: true,
                             },
                             {
                                 title: '维保合同',
+                                status: 0,
+                                count: 1521,
                                 expand: true,
                             },
                             {
                                 title: '维保报告',
+                                status: 0,
+                                count: 1521,
                                 expand: true,
                             },
                         ]
@@ -243,14 +261,20 @@
                         children: [
                             {
                                 title: '消防室控制人员',
+                                status: 0,
+                                count: 12,
                                 expand: true,
                             },
                             {
                                 title: '消防室值班记录',
+                                status: 0,
+                                count: 1521,
                                 expand: true,
                             },
                             {
                                 title: '消防室视频',
+                                status: 2,
+                                count: 1521,
                                 expand: true,
                             },
                         ]
@@ -261,34 +285,48 @@
                         children: [
                             {
                                 title: '自动火警报警系统',
+                                status: 0,
+                                count: 12,
                                 expand: true,
                             },
                             {
                                 title: '喷淋系统',
+                                status: 0,
+                                count: 1521,
                                 expand: true,
                                 children: [
                                     {
                                         title: '自动喷水灭火系统',
+                                        status: 0,
+                                        count: 1521,
                                         expand: true,
                                     },
                                 ],
                             },
                             {
                                 title: '消火栓系统',
+                                status: 0,
+                                count: 1521,
                                 expand: true,
                                 children: [
                                     {
                                         title: '室内消火栓系统',
+                                        status: 0,
+                                        count: 1521,
                                         expand: true,
                                     },
                                 ],
                             },
                             {
                                 title: '电气安全监控系统',
+                                status: 0,
+                                count: 12,
                                 expand: true,
                             },
                             {
                                 title: '消防水池水箱水位',
+                                status: 0,
+                                count: 12,
                                 expand: true,
                             },
                         ]
@@ -299,6 +337,18 @@
 
         methods: {
             renderContent(h, {data}) {
+                let remark, color = '#327BC6';
+                if (data.status === 0){
+                    remark = ` [${data.count}]`;
+                } else if(data.status === 1){
+                    remark = ` [已维保]`;
+                    color = '#11E24C';
+                } else if(data.status === 1){
+                    remark = ` [可查看]`;
+                    color = '#11E24C';
+                } else {
+                    remark = '';
+                }
                 return h('span', [
                     h('span', [
                         h('Icon', {
@@ -309,7 +359,14 @@
                                 marginRight: '8px'
                             }
                         }),
-                        h('span', data.title)
+                        h('span', [
+                            h(data.title),
+                            h('span', {
+                                style: {
+                                    color: color,
+                                }
+                            }, remark)
+                        ])
                     ]),
                     h('span', {
                         style: {

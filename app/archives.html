@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="http://unpkg.com/iview/dist/styles/iview.css">
+    <script type="text/javascript" src="http://vuejs.org/js/vue.min.js"></script>
+    <script type="text/javascript" src="http://unpkg.com/iview/dist/iview.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/app.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/archives.css">
+</head>
+<body>
+<div id="app">
+    <div class="layout">
+        <Layout>
+            <i-header class="header">
+                <i-menu mode="horizontal" theme="dark" class="menu">
+                    <div class="logo"></div>
+                    <div class="nav">
+                        <span class="time">{{time}}</span>
+                        <menu-item name="1">
+                            <Icon custom="icon bell"></Icon>
+                            提示
+                        </menu-item>
+                        <menu-item name="2">
+                            <Icon custom="icon user"></Icon>
+                            <Dropdown>
+                                王某某
+                                <Icon type="md-arrow-dropdown" class="arrow"/>
+                                <DropdownMenu slot="list">
+                                    <DropdownItem>选项一</DropdownItem>
+                                    <DropdownItem>选项二</DropdownItem>
+                                    <DropdownItem>选项三</DropdownItem>
+                                </DropdownMenu>
+                            </Dropdown>
+                        </menu-item>
+                        <menu-item name="3" class="logout">
+                            <Icon custom="icon logout"></Icon>
+                            退出
+                        </menu-item>
+                    </div>
+                </i-menu>
+            </i-header>
+            <Layout>
+                <div class="sidebar">
+                    <div class="info">
+                        <div>
+                            <img src="assets/img/tx.png">
+                        </div>
+                        <div class="name">王某某</div>
+                        <div class="role">超级管理员</div>
+                    </div>
+                    <Sider hide-trigger>
+                        <i-menu active-name="1-2" class="menu" mode="vertical">
+                            <submenu name="1">
+                                <template slot="title">
+                                    <Icon custom="icon sy"></Icon>
+                                    首页
+                                </template>
+                                <Menu-item name="2-1">新增用户</Menu-item>
+                                <Menu-item name="2-2">活跃用户</Menu-item>
+                            </submenu>
+                            <Submenu name="2">
+                                <template slot="title">
+                                    <Icon custom="icon dwxx"></Icon>
+                                    单位信息
+                                </template>
+                                <Menu-item name="2-1">新增用户</Menu-item>
+                                <Menu-item name="2-2">活跃用户</Menu-item>
+                            </Submenu>
+                            <Submenu name="3">
+                                <template slot="title">
+                                    <Icon custom="icon dwda"></Icon>
+                                    单位档案
+                                </template>
+                            </Submenu>
+                            <Submenu name="4">
+                                <template slot="title">
+                                    <Icon custom="icon xcba"></Icon>
+                                    巡查备案
+                                </template>
+                                <Menu-item name="2-1">新增用户</Menu-item>
+                                <Menu-item name="2-2">活跃用户</Menu-item>
+                            </Submenu>
+                            <Submenu name="5">
+                                <template slot="title">
+                                    <Icon custom="icon wbxx"></Icon>
+                                    维保信息
+                                </template>
+                                <Menu-item name="2-1">新增用户</Menu-item>
+                                <Menu-item name="2-2">活跃用户</Menu-item>
+                            </Submenu>
+                            <Submenu name="6">
+                                <template slot="title">
+                                    <Icon custom="icon xksxx"></Icon>
+                                    消防控制室
+                                </template>
+                                <Menu-item name="2-1">新增用户</Menu-item>
+                                <Menu-item name="2-2">活跃用户</Menu-item>
+                            </Submenu>
+                            <Submenu name="7">
+                                <template slot="title">
+                                    <Icon custom="icon wll"></Icon>
+                                    消防物联网
+                                </template>
+                                <Menu-item name="2-1">新增用户</Menu-item>
+                                <Menu-item name="2-2">活跃用户</Menu-item>
+                            </Submenu>
+                            <Submenu name="8">
+                                <template slot="title">
+                                    <Icon custom="icon xtgl"></Icon>
+                                    系统管理
+                                </template>
+                                <Menu-item name="2-1">新增用户</Menu-item>
+                                <Menu-item name="2-2">活跃用户</Menu-item>
+                            </Submenu>
+                        </i-menu>
+                    </Sider>
+                </div>
+                <Layout class="main">
+                    <Content :style="{padding: '20px', minHeight: '280px'}">
+                        <div class="archives">
+                            <div class="tree-menu">
+                                <Tree :data="data" :render="renderContent"></Tree>
+                            </div>
+                            <iframe name="info" frameborder="0" style="width: calc(100% - 314px); height: 990px; float: left; margin-left: 14px; border-bottom: 1px solid #2380D7;"></iframe>
+                        </div>
+                    </Content>
+                </Layout>
+            </Layout>
+        </Layout>
+    </div>
+</div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"
+        integrity="sha256-AdQN98MVZs44Eq2yTwtoKufhnU+uZ7v2kXnD5vqzZVo=" crossorigin="anonymous"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data() {
+            return {
+                time: '',
+                flag: false,
+                data: [
+                    {
+                        title: '单位基本情况',
+                        expand: true,
+                        children: [
+                            {
+                                title: '单位基本情况',
+                                expand: true,
+                                url: './archives/basic_info.html',
+                            },
+                        ]
+                    },
+                    {
+                        title: '巡查/备案情况',
+                        expand: true,
+                        children: [
+                            {
+                                title: '每日防火巡查',
+                                status: 0,
+                                count: 1521,
+                                expand: true,
+                                url: 'https://baidu.com',
+                            },
+                            {
+                                title: '防火检查',
+                                status: 0,
+                                count: 1521,
+                                expand: true,
+                                url: 'https://baidu.com',
+                            },
+                            {
+                                title: '消防室值班信息',
+                                status: 0,
+                                count: 1521,
+                                expand: true,
+                                url: 'https://baidu.com',
+                            },
+                            {
+                                title: '人员备案',
+                                status: 0,
+                                count: 1521,
+                                expand: true,
+                                url: 'https://baidu.com',
+                            },
+                            {
+                                title: '自我评估备案',
+                                status: 0,
+                                count: 1521,
+                                expand: true,
+                                url: 'https://baidu.com',
+                            },
+                            {
+                                title: '消防培训',
+                                status: 0,
+                                count: 1521,
+                                expand: true,
+                                url: 'https://baidu.com',
+                            }
+                        ]
+                    },
+                    {
+                        title: '维保情况',
+                        expand: true,
+                        children: [
+                            {
+                                title: '维保机构',
+                                status: 1,
+                                count: 1521,
+                                expand: true,
+                                url: 'https://baidu.com',
+                            },
+                            {
+                                title: '维保合同',
+                                status: 0,
+                                count: 1521,
+                                expand: true,
+                                url: 'https://baidu.com',
+                            },
+                            {
+                                title: '维保报告',
+                                status: 0,
+                                count: 1521,
+                                expand: true,
+                                url: 'https://baidu.com',
+                            },
+                        ]
+                    },
+                    {
+                        title: '消防室情况',
+                        expand: true,
+                        children: [
+                            {
+                                title: '消防室控制人员',
+                                status: 0,
+                                count: 12,
+                                expand: true,
+                                url: 'https://baidu.com',
+                            },
+                            {
+                                title: '消防室值班记录',
+                                status: 0,
+                                count: 1521,
+                                expand: true,
+                                url: 'https://baidu.com',
+                            },
+                            {
+                                title: '消防室视频',
+                                status: 2,
+                                count: 1521,
+                                expand: true,
+                                url: 'https://baidu.com',
+                            },
+                        ]
+                    },
+                    {
+                        title: '消防物联网情况',
+                        expand: true,
+                        children: [
+                            {
+                                title: '自动火警报警系统',
+                                status: 0,
+                                count: 12,
+                                expand: true,
+                                url: 'https://baidu.com',
+                            },
+                            {
+                                title: '喷淋系统',
+                                status: 0,
+                                count: 1521,
+                                expand: true,
+                                children: [
+                                    {
+                                        title: '自动喷水灭火系统',
+                                        status: 0,
+                                        count: 1521,
+                                        expand: true,
+                                        url: 'https://baidu.com',
+                                    },
+                                ],
+                            },
+                            {
+                                title: '消火栓系统',
+                                status: 0,
+                                count: 1521,
+                                expand: true,
+                                children: [
+                                    {
+                                        title: '室内消火栓系统',
+                                        status: 0,
+                                        count: 1521,
+                                        expand: true,
+                                        url: 'https://baidu.com',
+                                    },
+                                ],
+                            },
+                            {
+                                title: '电气安全监控系统',
+                                status: 0,
+                                count: 12,
+                                expand: true,
+                                url: 'https://baidu.com',
+                            },
+                            {
+                                title: '消防水池水箱水位',
+                                status: 0,
+                                count: 12,
+                                expand: true,
+                                url: 'https://baidu.com',
+                            },
+                        ]
+                    },
+                ],
+            }
+        },
+        created() {
+            let time = setInterval(() => {
+                if (this.flag == true) {
+                    clearInterval(time)
+                }
+                this.time = moment().format('YYYY-MM-DD HH:mm:ss');
+            }, 500)
+        },
+        methods: {
+            renderContent(h, {data}) {
+                let remark, color = '#327BC6';
+                if (data.status === 0) {
+                    remark = ` [${data.count}]`;
+                } else if (data.status === 1) {
+                    remark = ` [已维保]`;
+                    color = '#11E24C';
+                } else if (data.status === 2) {
+                    remark = ` [可查看]`;
+                    color = '#11E24C';
+                } else {
+                    remark = '';
+                }
+                let attrs = {};
+                if (data.url) {
+                    attrs = {
+                        href: data.url,
+                        target: 'info',
+                    }
+                }
+                return h('span', [
+                    h('span', [
+                        h('Icon', {
+                            props: {
+                                type: 'ios-paper-outline'
+                            },
+                            style: {
+                                marginRight: '8px'
+                            }
+                        }),
+                        h('a', {
+                            attrs: attrs,
+                        }, [
+                            h('span', data.title),
+                            h('span', {
+                                style: {
+                                    color: color,
+                                }
+                            }, remark)
+                        ])
+                    ]),
+                    h('span', {
+                        style: {
+                            display: 'inline-block',
+                            float: 'right',
+                            marginRight: '32px'
+                        }
+                    })
+                ]);
+            },
+        }
+    })
+</script>
+</html>

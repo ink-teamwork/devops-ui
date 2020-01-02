@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="http://unpkg.com/iview/dist/styles/iview.css">
+    <script type="text/javascript" src="http://vuejs.org/js/vue.min.js"></script>
+    <script type="text/javascript" src="http://unpkg.com/iview/dist/iview.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/login.css">
+</head>
+<body>
+<div id="app">
+    <div class="login">
+        <div class="title"></div>
+        <div class="form">
+            <i-form ref="formCustom" :model="formCustom" :rules="ruleCustom" :label-width="0">
+                <form-item prop="passwd">
+                    <i-input placeholder="请输入用户名" type="text" v-model="formCustom.passwd" class="input" size="large">
+                    <Icon custom="icon user" slot="prefix"/>
+                    </i-input>
+                </form-item>
+                <form-item prop="passwdCheck">
+                    <i-input placeholder="请输入密码" type="password"
+                           v-model="formCustom.passwdCheck" class="input" size="large">
+                    <Icon custom="icon lock" slot="prefix"/>
+                    </i-input>
+                </form-item>
+                <form-item prop="passwdCheck">
+                    <Radio-Group v-model="type" style="display: block; color: #000;">
+                        <Radio label="消防机构"></Radio>
+                        <Radio label="社会单位" style="float: right"></Radio>
+                    </Radio-Group>
+                </form-item>
+                <form-item>
+                    <i-button type="primary" class="submit" @click="handleSubmit('formCustom')" long>登录</i-button>
+                </form-item>
+            </i-form>
+        </div>
+        <i-button>Click me!</i-button>
+    </div>
+</div>
+</body>
+
+<script>
+    new Vue({
+        el: '#app',
+        data() {
+
+            const validatePass = (rule, value, callback) => {
+                if (value === '') {
+                    callback(new Error('Please enter your password'));
+                } else {
+                    if (this.formCustom.passwdCheck !== '') {
+                        // 对第二个密码框单独验证
+                        this.$refs.formCustom.validateField('passwdCheck');
+                    }
+                    callback();
+                }
+            };
+            const validatePassCheck = (rule, value, callback) => {
+                if (value === '') {
+                    callback(new Error('Please enter your password again'));
+                } else if (value !== this.formCustom.passwd) {
+                    callback(new Error('The two input passwords do not match!'));
+                } else {
+                    callback();
+                }
+            };
+            const validateAge = (rule, value, callback) => {
+                if (!value) {
+                    return callback(new Error('Age cannot be empty'));
+                }
+                // 模拟异步验证效果
+                setTimeout(() => {
+                    if (!Number.isInteger(value)) {
+                        callback(new Error('Please enter a numeric value'));
+                    } else {
+                        if (value < 18) {
+                            callback(new Error('Must be over 18 years of age'));
+                        } else {
+                            callback();
+                        }
+                    }
+                }, 1000);
+            };
+
+            return {
+                type: '消防机构',
+                formCustom: {
+                    passwd: '',
+                    passwdCheck: '',
+                    age: ''
+                },
+                ruleCustom: {
+                    passwd: [
+                        {validator: validatePass, trigger: 'blur'}
+                    ],
+                    passwdCheck: [
+                        {validator: validatePassCheck, trigger: 'blur'}
+                    ],
+                    age: [
+                        {validator: validateAge, trigger: 'blur'}
+                    ]
+                }
+            }
+        },
+        methods: {
+            handleSubmit(name) {
+                this.$refs[name].validate((valid) => {
+                    if (valid) {
+                        this.$Message.success('Success!');
+                    } else {
+                        this.$Message.error('Fail!');
+                    }
+                })
+            },
+            handleReset(name) {
+                this.$refs[name].resetFields();
+            }
+        }
+    })
+</script>
+</html>
